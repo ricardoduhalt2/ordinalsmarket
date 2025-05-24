@@ -17,10 +17,10 @@ const OrdinalCard: React.FC<OrdinalCardProps> = ({ inscriptionData, title, descr
   const displayLink = inscriptionData?.content_url || link; // Use content_url as link if available
 
   return (
-      <div className="bg-dark-bg p-6 rounded-xl shadow-lg text-white flex flex-col items-center text-center border border-neon-blue/20 hover:border-neon-blue transition-all duration-300 transform hover:scale-105 hover:shadow-neon-blue/50 hover:shadow-lg">
-        <h3 className="text-2xl font-extrabold mb-3 neon-text bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-purple">{displayTitle}</h3>
+      <div className="bg-glass backdrop-blur-md p-6 rounded-xl text-white flex flex-col items-center text-center border border-neutral-700 hover:border-neon-pink transition-all duration-300 transform hover:shadow-neon-pink-strong card-tilt">
+        <h3 className="text-2xl font-extrabold mb-3 neon-text bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-pink">{displayTitle}</h3>
       {displayImageUrl && inscriptionData?.content_type?.startsWith('image/') && (
-        <img src={displayImageUrl} alt={displayTitle} className="w-40 h-40 object-cover rounded-lg mb-5 border-2 border-neon-purple/30 shadow-lg hover:shadow-neon-blue/50 hover:scale-105 transition-all duration-300" />
+        <img src={displayImageUrl} alt={displayTitle} className="w-40 h-40 object-cover rounded-lg mb-5 border-2 border-neutral-600 hover:shadow-neon-blue/50 hover:scale-105 transition-all duration-300" />
       )}
       {displayImageUrl && !inscriptionData?.content_type?.startsWith('image/') && (
         <p className="text-neon-blue mb-3 font-mono text-sm bg-dark-bg px-3 py-1 rounded-full">Content Type: {inscriptionData?.content_type}</p>
@@ -33,7 +33,7 @@ const OrdinalCard: React.FC<OrdinalCardProps> = ({ inscriptionData, title, descr
         <p className="text-neon-purple/80 text-sm mb-4 font-mono">Owner: {inscriptionData.owner_address.substring(0, 6)}...{inscriptionData.owner_address.substring(inscriptionData.owner_address.length - 6)}</p>
       )}
       {displayLink && (
-        <a href={displayLink} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold py-2 px-6 rounded-full mt-4 hover:shadow-lg hover:shadow-neon-blue/50 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 animate-pulse-slow">
+        <a href={displayLink} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-neon-green to-neon-blue text-white font-bold py-2 px-6 rounded-full mt-4 hover:shadow-neon-green-strong transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 animate-pulse-slow">
           View Content
         </a>
       )}
@@ -152,7 +152,7 @@ const OrdinalsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-dark-bg text-white p-8">
-      <h1 className="text-5xl font-extrabold text-center mb-12 neon-text bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-purple">ORDINALS Collection</h1>
+      <h1 className="text-5xl font-extrabold text-center mb-12 neon-text bg-clip-text text-transparent bg-gradient-to-r from-neon-purple to-neon-pink">ORDINALS Collection</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {/* Bitcoin Drip Kimono */}
         {loadingStates.kimono ? (

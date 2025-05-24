@@ -36,6 +36,15 @@ body {
   /* Removed display: flex; place-items: center; */
   min-width: 320px;
   /* min-height: 100vh; is now covered by html, body, #root height: 100% */
+  background: linear-gradient(-45deg, #0a0a0a, #1a0a1a, #0a1a1a, #1a1a0a);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 h1 {
@@ -73,4 +82,19 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.card-tilt {
+  perspective: 1000px; /* Define the perspective for the 3D effect */
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out; /* Match duration with existing transitions */
+}
+
+.card-tilt:hover {
+  transform: scale(1.05) translateZ(20px) rotateX(7deg) rotateY(7deg);
+}
+
+/* Optional: Add a subtle effect to direct children of the card to enhance the 3D feel */
+.card-tilt:hover > * {
+  transform: translateZ(20px); /* Lifts children slightly */
 }
