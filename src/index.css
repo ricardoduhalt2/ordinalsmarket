@@ -8,15 +8,32 @@ html, body, #root {
   padding: 0;
 }
 
+body {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 240, 255, 0.1),
+    rgba(212, 0, 255, 0.1),
+    rgba(255, 0, 255, 0.1)
+  );
+  background-size: 400% 400%;
+  animation: aurora 15s ease infinite;
+}
+
+.card-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  /* background-color: #242424; */ /* Removed to rely on component backgrounds */
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -33,9 +50,7 @@ a:hover {
 }
 
 body {
-  /* Removed display: flex; place-items: center; */
   min-width: 320px;
-  /* min-height: 100vh; is now covered by html, body, #root height: 100% */
 }
 
 h1 {
