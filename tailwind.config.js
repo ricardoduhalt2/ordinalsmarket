@@ -7,34 +7,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        'neon-blue': '#00f0ff',
-        'neon-purple': '#d400ff',
-        'neon-pink': '#ff00ff',
-        'neon-green': '#00ff9d',
-        'dark-bg': '#0a0a0a',
-        'glass': 'rgba(255, 255, 255, 0.05)',
-      },
-      fontFamily: {
-        'mono': ['"Space Mono"', 'monospace'],
+        'wp-gold': '#F7B538',
+        'wp-dark': '#1A1A1A',
+        'wp-light': '#F5F5F5',
+        'wp-accent': '#DB9A1D',
       },
       boxShadow: {
-        'neon': '0 0 5px #00f0ff, 0 0 15px #00f0ff, 0 0 30px #00f0ff',
-        'neon-purple': '0 0 5px #d400ff, 0 0 15px #d400ff, 0 0 30px #d400ff',
-        'neon-pink': '0 0 5px #ff00ff, 0 0 15px #ff00ff, 0 0 30px #ff00ff',
-        'amber': '0 0 5px rgba(251, 191, 36, 0.5), 0 0 15px rgba(251, 191, 36, 0.3)',
+        'gold': '0 0 15px rgba(247, 181, 56, 0.3)',
+        'gold-hover': '0 0 25px rgba(247, 181, 56, 0.4)',
       },
       animation: {
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'aurora': 'aurora 15s linear infinite',
+        'float': 'float 6s ease-in-out infinite',
       },
       keyframes: {
-        aurora: {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
         }
-      },
-      scale: {
-        '102': '1.02',
       },
     },
   },
