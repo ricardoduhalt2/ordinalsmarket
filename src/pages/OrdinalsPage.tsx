@@ -17,26 +17,33 @@ const OrdinalCard: React.FC<OrdinalCardProps> = ({ inscriptionData, title, descr
   const displayLink = inscriptionData?.content_url || link;
 
   return (
-    <div className="card-tilt bg-glass backdrop-blur-md p-6 rounded-xl shadow-lg text-white flex flex-col items-center text-center border border-neon-blue/20 hover:border-neon-pink transition-all duration-300 transform hover:scale-105 hover:shadow-neon">
-      <h3 className="text-2xl font-extrabold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue">{displayTitle}</h3>
+    <div className="card-tilt h-full bg-glass backdrop-blur-md p-8 rounded-2xl shadow-lg text-white flex flex-col items-center text-center border border-amber-500/20 hover:border-amber-400 transition-all duration-300 transform hover:scale-102 hover:shadow-amber">
+      <img 
+        src="https://i.imgur.com/YZMKLQj.png"
+        alt="Wealth Protocol"
+        className="w-24 h-24 mb-6 transition-transform duration-300 transform group-hover:scale-110"
+      />
+      <h3 className="text-2xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">
+        {displayTitle}
+      </h3>
       {displayImageUrl && inscriptionData?.content_type?.startsWith('image/') && (
         <img 
           src={displayImageUrl} 
           alt={displayTitle} 
-          className="w-40 h-40 object-cover rounded-lg mb-5 border-2 border-neon-purple/30 shadow-lg hover:shadow-neon-purple transition-all duration-300" 
+          className="w-full h-48 object-cover rounded-xl mb-6 border-2 border-amber-500/30 shadow-lg hover:shadow-amber transition-all duration-300" 
         />
       )}
       {displayImageUrl && !inscriptionData?.content_type?.startsWith('image/') && (
-        <p className="text-neon-green mb-3 font-mono text-sm bg-dark-bg/50 px-3 py-1 rounded-full border border-neon-green/20">
+        <p className="text-amber-400 mb-4 font-mono text-sm bg-dark-bg/50 px-4 py-2 rounded-full border border-amber-500/20">
           Content Type: {inscriptionData?.content_type}
         </p>
       )}
-      <p className="text-neon-blue mb-5 text-lg leading-relaxed">{displayDescription}</p>
+      <p className="text-amber-100 mb-6 text-lg leading-relaxed flex-grow">{displayDescription}</p>
       {inscriptionData?.inscription_number && (
-        <p className="text-neon-purple/80 text-sm mb-2 font-mono">Inscription #: {inscriptionData.inscription_number}</p>
+        <p className="text-amber-300/80 text-sm mb-2 font-mono">Inscription #: {inscriptionData.inscription_number}</p>
       )}
       {inscriptionData?.owner_address && (
-        <p className="text-neon-pink/80 text-sm mb-4 font-mono">
+        <p className="text-amber-300/80 text-sm mb-4 font-mono">
           Owner: {inscriptionData.owner_address.substring(0, 6)}...{inscriptionData.owner_address.substring(inscriptionData.owner_address.length - 6)}
         </p>
       )}
@@ -45,7 +52,7 @@ const OrdinalCard: React.FC<OrdinalCardProps> = ({ inscriptionData, title, descr
           href={displayLink} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink text-white font-bold py-2 px-6 rounded-full mt-4 hover:shadow-neon transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 animate-pulse-slow"
+          className="bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold py-3 px-8 rounded-full mt-auto hover:shadow-amber transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-dark-bg"
         >
           View Content
         </a>
@@ -159,52 +166,61 @@ const OrdinalsPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-dark-bg/90 text-white p-8">
-      <h1 className="text-5xl font-extrabold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue">
-        ORDINALS Collection
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {loadingStates.kimono ? (
-          <OrdinalCard title="Bitcoin Drip Kimono" description="Loading data..." />
-        ) : errors.kimono ? (
-          <OrdinalCard title="Bitcoin Drip Kimono" description={errors.kimono} />
-        ) : kimonoData ? (
-          <OrdinalCard inscriptionData={kimonoData} />
-        ) : (
-          <OrdinalCard 
-            title="Bitcoin Drip Kimono" 
-            description="No data available" 
-            link="https://ordiscan.com/inscription/96591617"
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white p-4 sm:p-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-center mb-12">
+          <img 
+            src="https://i.imgur.com/YZMKLQj.png"
+            alt="Wealth Protocol"
+            className="w-32 h-32 sm:w-40 sm:h-40"
           />
-        )}
+        </div>
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">
+          ORDINALS Collection
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {loadingStates.kimono ? (
+            <OrdinalCard title="Bitcoin Drip Kimono" description="Loading data..." />
+          ) : errors.kimono ? (
+            <OrdinalCard title="Bitcoin Drip Kimono" description={errors.kimono} />
+          ) : kimonoData ? (
+            <OrdinalCard inscriptionData={kimonoData} />
+          ) : (
+            <OrdinalCard 
+              title="Bitcoin Drip Kimono" 
+              description="No data available" 
+              link="https://ordiscan.com/inscription/96591617"
+            />
+          )}
 
-        {loadingStates.tracksuit ? (
-          <OrdinalCard title="BTC tracksuit" description="Loading data..." />
-        ) : errors.tracksuit ? (
-          <OrdinalCard title="BTC tracksuit" description={errors.tracksuit} />
-        ) : tracksuitData ? (
-          <OrdinalCard inscriptionData={tracksuitData} />
-        ) : (
-          <OrdinalCard 
-            title="BTC tracksuit" 
-            description="No data available" 
-            link="https://ordiscan.com/inscription/96591705"
-          />
-        )}
+          {loadingStates.tracksuit ? (
+            <OrdinalCard title="BTC tracksuit" description="Loading data..." />
+          ) : errors.tracksuit ? (
+            <OrdinalCard title="BTC tracksuit" description={errors.tracksuit} />
+          ) : tracksuitData ? (
+            <OrdinalCard inscriptionData={tracksuitData} />
+          ) : (
+            <OrdinalCard 
+              title="BTC tracksuit" 
+              description="No data available" 
+              link="https://ordiscan.com/inscription/96591705"
+            />
+          )}
 
-        {loadingStates.chido ? (
-          <OrdinalCard title="C.H.I.D.O." description="Loading data..." />
-        ) : errors.chido ? (
-          <OrdinalCard title="C.H.I.D.O." description={errors.chido} />
-        ) : chidoData ? (
-          <OrdinalCard inscriptionData={chidoData} />
-        ) : (
-          <OrdinalCard 
-            title="C.H.I.D.O." 
-            description="No data available" 
-            link="https://ordiscan.com/inscription/96587318"
-          />
-        )}
+          {loadingStates.chido ? (
+            <OrdinalCard title="C.H.I.D.O." description="Loading data..." />
+          ) : errors.chido ? (
+            <OrdinalCard title="C.H.I.D.O." description={errors.chido} />
+          ) : chidoData ? (
+            <OrdinalCard inscriptionData={chidoData} />
+          ) : (
+            <OrdinalCard 
+              title="C.H.I.D.O." 
+              description="No data available" 
+              link="https://ordiscan.com/inscription/96587318"
+            />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -21,6 +21,7 @@ export default {
         'neon': '0 0 5px #00f0ff, 0 0 15px #00f0ff, 0 0 30px #00f0ff',
         'neon-purple': '0 0 5px #d400ff, 0 0 15px #d400ff, 0 0 30px #d400ff',
         'neon-pink': '0 0 5px #ff00ff, 0 0 15px #ff00ff, 0 0 30px #ff00ff',
+        'amber': '0 0 5px rgba(251, 191, 36, 0.5), 0 0 15px rgba(251, 191, 36, 0.3)',
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -31,6 +32,9 @@ export default {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
         }
+      },
+      scale: {
+        '102': '1.02',
       },
     },
   },
