@@ -13,8 +13,8 @@ export default {
         'wp-accent': '#DB9A1D',
       },
       boxShadow: {
-        'gold': '0 0 15px rgba(247, 181, 56, 0.3)',
-        'gold-hover': '0 0 25px rgba(247, 181, 56, 0.4)',
+        'gold': '0 4px 20px rgba(247, 181, 56, 0.2)',
+        'gold-hover': '0 8px 30px rgba(247, 181, 56, 0.3)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

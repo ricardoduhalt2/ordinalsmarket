@@ -9,16 +9,22 @@ html, body, #root {
 }
 
 body {
-  background: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%);
+  background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
   font-family: system-ui, -apple-system, sans-serif;
+  color: #ffffff;
 }
 
-.card-hover {
-  transition: all 0.3s ease;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
-.card-hover:hover {
-  transform: translateY(-5px);
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @layer components {
@@ -31,7 +37,7 @@ body {
   font-family: system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
+  color-scheme: dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
